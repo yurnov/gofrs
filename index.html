@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gofrs — Community-maintained Go packages</title>
+<meta name="description" content="An unofficial community site about the Gofrs, a community-formed group maintaining Go packages including gofrs/uuid and gofrs/flock.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://gof.rs/">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Gofrs — Community-maintained Go packages">
+<meta property="og:description" content="An unofficial community site about the Gofrs, a community-formed group maintaining Go packages including gofrs/uuid and gofrs/flock.">
+<meta property="og:image" content="https://raw.githubusercontent.com/gofrs/.github/main/profile/gofrs.png">
+<meta property="og:url" content="https://gof.rs/">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<!-- Open source fonts: Inter + JetBrains Mono, both SIL Open Font License 1.1 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- Tailwind CSS (MIT) via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        },
+        colors: {
+          // Go brand cyan. The light tone is decorative only; text uses the dark tone (4.75:1 on white).
+          go: { light: '#00ADD8', DEFAULT: '#007D9C', dark: '#00647D' },
+        },
+        maxWidth: { content: '64rem' },
+      },
+    },
+  };
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    :focus-visible { @apply outline-none ring-2 ring-go ring-offset-2 ring-offset-white rounded-sm; }
+  }
+</style>
+</head>
+
+<body class="bg-white font-sans text-slate-800 antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white">Skip to content</a>
+
+<!-- ── Unofficial-site notice ─────────────────────────────────────────── -->
+<div class="border-b border-slate-200 bg-slate-50">
+  <p class="mx-auto max-w-content px-4 py-2 text-center text-xs leading-relaxed text-slate-600 sm:px-6">
+    Unofficial community site &mdash; not affiliated with, endorsed by, or maintained by the Gofrs organization.
+    The official source is
+    <a class="font-medium text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/gofrs">github.com/gofrs</a>.
+  </p>
+</div>
+
+<!-- ── Header ─────────────────────────────────────────────────────────── -->
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+  <nav class="mx-auto flex max-w-content items-center justify-between gap-4 px-4 py-3 sm:px-6" aria-label="Primary">
+    <a href="#main" class="flex items-center gap-2 font-semibold tracking-tight text-slate-900">
+      <span aria-hidden="true" class="inline-block h-2.5 w-2.5 rounded-full bg-go-light"></span>
+      gofrs
+    </a>
+    <ul class="flex items-center gap-4 text-sm sm:gap-6">
+      <li><a class="text-slate-600 transition-colors hover:text-slate-900" href="#libraries">Libraries</a></li>
+      <li><a class="text-slate-600 transition-colors hover:text-slate-900" href="#about">About</a></li>
+      <li><a class="hidden text-slate-600 transition-colors hover:text-slate-900 sm:inline" href="#involved">Get involved</a></li>
+      <li>
+        <a class="rounded-md border border-slate-300 px-3 py-1.5 font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
+           href="https://github.com/gofrs" rel="noopener noreferrer">GitHub</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="mx-auto max-w-content px-4 pb-16 pt-14 text-center sm:px-6 sm:pb-20 sm:pt-20">
+    <img
+      src="https://raw.githubusercontent.com/gofrs/.github/main/profile/gofrs.png"
+      alt="The Gofrs logo: a gopher wearing a hard hat beside a GO BUILD road sign"
+      width="1600" height="1600" decoding="async"
+      class="mx-auto h-auto w-40 max-w-full sm:w-52">
+
+    <h1 class="mt-8 text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">The&nbsp;Gofrs</h1>
+    <p class="mt-2 text-sm text-slate-500">pronounced &ldquo;Gophers&rdquo;</p>
+
+    <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-slate-600">
+      A community-formed group working together to better the entire Go ecosystem &mdash; picking up
+      maintenance of packages that are widely used or have a large impact, and building new solutions
+      as the Go community grows.
+    </p>
+
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+      <a href="#libraries"
+         class="rounded-md bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-700">
+        Browse the libraries
+      </a>
+      <a href="https://github.com/gofrs" rel="noopener noreferrer"
+         class="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50">
+        View on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Libraries ────────────────────────────────────────────────────── -->
+  <section id="libraries" class="border-t border-slate-200 bg-slate-50/60 py-16 sm:py-20" aria-labelledby="libraries-heading">
+    <div class="mx-auto max-w-content px-4 sm:px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-go">Packages</p>
+      <h2 id="libraries-heading" class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Go libraries maintained by the Gofrs</h2>
+      <p class="mt-3 max-w-2xl leading-relaxed text-slate-600">
+        Both packages are stable, widely depended on, and documented on
+        <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://pkg.go.dev" rel="noopener noreferrer">pkg.go.dev</a>.
+      </p>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+        <!-- uuid -->
+        <article class="flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-slate-300 sm:p-8">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h3 class="font-mono text-lg font-medium text-slate-900">
+              <a class="underline decoration-slate-300 underline-offset-4 hover:decoration-go" href="https://github.com/gofrs/uuid" rel="noopener noreferrer">gofrs/uuid</a>
+            </h3>
+            <span class="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">MIT</span>
+          </div>
+
+          <p class="mt-3 grow leading-relaxed text-slate-600">
+            A pure-Go implementation of Universally Unique Identifiers. Generates and parses UUID
+            versions 1, 3, 4, 5, 6 and 7, with <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em] text-slate-700">database/sql</code>
+            and JSON marshalling support built in.
+          </p>
+
+          <dl class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <div class="flex gap-1.5"><dt class="text-slate-500">Latest</dt><dd class="font-mono font-medium text-slate-900" data-release="gofrs/uuid">v5.5.1</dd></div>
+            <div class="flex gap-1.5"><dt class="text-slate-500">Stars</dt><dd class="font-mono font-medium text-slate-900" data-stars="gofrs/uuid">1.8k</dd></div>
+          </dl>
+
+          <div class="mt-5">
+            <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2">
+              <div class="min-w-0 grow overflow-x-auto">
+                <code class="whitespace-nowrap font-mono text-sm text-slate-700">go get github.com/gofrs/uuid/v5</code>
+              </div>
+              <button type="button" data-copy="go get github.com/gofrs/uuid/v5"
+                      class="shrink-0 rounded border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a class="text-go hover:underline underline-offset-4" href="https://pkg.go.dev/github.com/gofrs/uuid/v5" rel="noopener noreferrer">Documentation &rarr;</a>
+            <a class="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4" href="https://github.com/gofrs/uuid" rel="noopener noreferrer">Source</a>
+          </div>
+        </article>
+
+        <!-- flock -->
+        <article class="flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-slate-300 sm:p-8">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h3 class="font-mono text-lg font-medium text-slate-900">
+              <a class="underline decoration-slate-300 underline-offset-4 hover:decoration-go" href="https://github.com/gofrs/flock" rel="noopener noreferrer">gofrs/flock</a>
+            </h3>
+            <span class="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">BSD-3-Clause</span>
+          </div>
+
+          <p class="mt-3 grow leading-relaxed text-slate-600">
+            A thread-safe file lock. Provides blocking <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em] text-slate-700">Lock</code> /
+            <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em] text-slate-700">RLock</code> calls plus non-blocking
+            <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em] text-slate-700">TryLock</code> variants, with
+            context-aware and retrying helpers.
+          </p>
+
+          <dl class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <div class="flex gap-1.5"><dt class="text-slate-500">Latest</dt><dd class="font-mono font-medium text-slate-900" data-release="gofrs/flock">v0.13.1</dd></div>
+            <div class="flex gap-1.5"><dt class="text-slate-500">Stars</dt><dd class="font-mono font-medium text-slate-900" data-stars="gofrs/flock">759</dd></div>
+          </dl>
+
+          <div class="mt-5">
+            <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2">
+              <div class="min-w-0 grow overflow-x-auto">
+                <code class="whitespace-nowrap font-mono text-sm text-slate-700">go get github.com/gofrs/flock</code>
+              </div>
+              <button type="button" data-copy="go get github.com/gofrs/flock"
+                      class="shrink-0 rounded border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a class="text-go hover:underline underline-offset-4" href="https://pkg.go.dev/github.com/gofrs/flock" rel="noopener noreferrer">Documentation &rarr;</a>
+            <a class="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4" href="https://github.com/gofrs/flock" rel="noopener noreferrer">Source</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="mt-6 text-sm text-slate-500">
+        Release and star figures refresh from the GitHub API when available; otherwise the values recorded on 12 September 2026 are shown.
+        The organization hosts a few other repositories &mdash; see the
+        <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/orgs/gofrs/repositories" rel="noopener noreferrer">full repository list</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── About ────────────────────────────────────────────────────────── -->
+  <section id="about" class="py-16 sm:py-20" aria-labelledby="about-heading">
+    <div class="mx-auto max-w-content px-4 sm:px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-go">About</p>
+      <h2 id="about-heading" class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Who the Gofrs are</h2>
+
+      <div class="mt-8 grid gap-10 md:grid-cols-3">
+        <div class="space-y-4 leading-relaxed text-slate-600 md:col-span-2">
+          <blockquote class="border-l-2 border-go-light pl-4 text-lg text-slate-700">
+            &ldquo;The Gofrs (pronounced Gophers) is a community-formed group working together to better the
+            entire Go ecosystem.&rdquo;
+          </blockquote>
+          <p>
+            The group came together in the summer of 2018 to take over one of the most popular UUID packages in
+            the Go ecosystem, <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.9em] text-slate-700">github.com/satori/go.uuid</code>,
+            after it stopped being actively maintained. That work became <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/gofrs/uuid" rel="noopener noreferrer">gofrs/uuid</a>,
+            and the group has since looked at contributing to more projects.
+          </p>
+          <p>
+            Their efforts centre on picking up maintenance of projects that are widely used or have a large
+            impact, and on considering new solutions to problems that arise as the number of Go programmers
+            continues to grow.
+          </p>
+          <p>
+            A core part of the group&rsquo;s purpose is lowering the barrier to contributing: making it easy for
+            people to join the organization, and helping those newer to open source gain experience and learn to
+            be positive open source citizens.
+          </p>
+        </div>
+
+        <aside class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-sm font-semibold text-slate-900">At a glance</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div><dt class="text-slate-500">Formed</dt><dd class="font-medium text-slate-900">Summer 2018</dd></div>
+            <div><dt class="text-slate-500">Origin</dt><dd class="font-medium text-slate-900">Maintaining satori/go.uuid</dd></div>
+            <div><dt class="text-slate-500">Focus</dt><dd class="font-medium text-slate-900">Critical Go package maintenance</dd></div>
+            <div><dt class="text-slate-500">Chat</dt>
+              <dd><a class="font-medium text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://gophers.slack.com/messages/CBP4N9BEU" rel="noopener noreferrer">#gofrs on Gophers Slack</a></dd>
+            </div>
+          </dl>
+          <p class="mt-5 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
+            Summarised from the organization&rsquo;s
+            <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/gofrs/.github/blob/main/profile/README.md" rel="noopener noreferrer">profile README</a>.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Get involved ─────────────────────────────────────────────────── -->
+  <section id="involved" class="border-t border-slate-200 bg-slate-50/60 py-16 sm:py-20" aria-labelledby="involved-heading">
+    <div class="mx-auto max-w-content px-4 sm:px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-go">Participate</p>
+      <h2 id="involved-heading" class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Get involved</h2>
+      <p class="mt-3 max-w-2xl leading-relaxed text-slate-600">
+        All of the following happen in the Gofrs organization&rsquo;s own GitHub Discussions and Slack channel.
+      </p>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <article class="rounded-xl border border-slate-200 bg-white p-6">
+          <h3 class="font-semibold text-slate-900">Request their help</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Know a project that would be a good fit for the group to maintain, or a problem the Go community
+            is facing? File a help request and someone will start the conversation.
+          </p>
+          <a class="mt-4 inline-block text-sm font-medium text-go hover:underline underline-offset-4"
+             href="https://github.com/orgs/gofrs/discussions/categories/help-requests" rel="noopener noreferrer">Open a help request &rarr;</a>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-6">
+          <h3 class="font-semibold text-slate-900">Join the organization</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Help triage issues, maintain a package, or have a say in the group&rsquo;s direction. The process is
+            light &mdash; open a join request, then link it in the Slack channel.
+          </p>
+          <a class="mt-4 inline-block text-sm font-medium text-go hover:underline underline-offset-4"
+             href="https://github.com/orgs/gofrs/discussions/categories/join-requests" rel="noopener noreferrer">Open a join request &rarr;</a>
+          <p class="mt-3 text-xs leading-relaxed text-slate-500">
+            Members are required to have two-factor authentication enabled at all times.
+          </p>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-6 sm:col-span-2 lg:col-span-1">
+          <h3 class="font-semibold text-slate-900">Talk to them</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Conversation happens in <span class="font-mono text-[0.9em]">#gofrs</span> on the Gophers Slack.
+            Not a member yet? Request an invite first.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a class="text-go hover:underline underline-offset-4" href="https://gophers.slack.com/messages/CBP4N9BEU" rel="noopener noreferrer">#gofrs channel &rarr;</a>
+            <a class="text-slate-600 hover:text-slate-900 hover:underline underline-offset-4" href="https://invite.slack.golangbridge.org/" rel="noopener noreferrer">Get an invite</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer / attribution ───────────────────────────────────────────── -->
+<footer id="attribution" class="border-t border-slate-200 py-14" aria-labelledby="attribution-heading">
+  <div class="mx-auto max-w-content px-4 sm:px-6">
+
+    <div class="rounded-xl border border-amber-200 bg-amber-50 p-5 sm:p-6">
+      <h2 id="attribution-heading" class="text-sm font-semibold text-amber-900">Disclaimer</h2>
+      <p class="mt-2 text-sm leading-relaxed text-amber-900/90">
+        This is an <strong>unofficial, non-commercial community site</strong>. It is not affiliated with,
+        endorsed by, sponsored by, or maintained by the Gofrs organization or any of its members, nor by
+        Google&nbsp;LLC or the Go project. It simply links to and summarises publicly available information.
+        For anything authoritative &mdash; including support, security reports and releases &mdash; refer to
+        <a class="font-medium underline decoration-amber-400 underline-offset-2 hover:decoration-amber-700" href="https://github.com/gofrs" rel="noopener noreferrer">github.com/gofrs</a>
+        and the individual repositories.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
+
+      <section>
+        <h3 class="font-semibold text-slate-900">Logo &amp; artwork</h3>
+        <p class="mt-2 leading-relaxed text-slate-600">
+          The Gofrs logo incorporates the <em>&ldquo;GO BUILD&rdquo;</em> image by
+          <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/ashleymcnamara" rel="noopener noreferrer">Ashley McNamara</a>,
+          from the <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/ashleymcnamara/gophers" rel="noopener noreferrer">ashleymcnamara/gophers</a>
+          collection, licensed under
+          <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener noreferrer">CC&nbsp;BY-NC-SA&nbsp;4.0</a>.
+          It is displayed here unmodified, for non-commercial purposes.
+        </p>
+        <p class="mt-2 leading-relaxed text-slate-600">
+          The Go Gopher character was created by
+          <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://reneefrench.blogspot.com/" rel="noopener noreferrer">Renée French</a>
+          and is licensed under
+          <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://creativecommons.org/licenses/by/3.0/" rel="noopener noreferrer">CC&nbsp;BY&nbsp;3.0</a>.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-slate-900">Packages</h3>
+        <ul class="mt-2 space-y-2 leading-relaxed text-slate-600">
+          <li>
+            <span class="font-mono text-slate-800">gofrs/uuid</span> &mdash;
+            <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/gofrs/uuid/blob/master/LICENSE" rel="noopener noreferrer">MIT</a>.
+            Copyright &copy; 2013&ndash;2018 Maxim Bublis and the Gofrs contributors.
+          </li>
+          <li>
+            <span class="font-mono text-slate-800">gofrs/flock</span> &mdash;
+            <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/gofrs/flock/blob/master/LICENSE" rel="noopener noreferrer">BSD-3-Clause</a>.
+            Copyright &copy; 2018&ndash;2024 The Gofrs; copyright &copy; 2015&ndash;2020 Tim Heckman.
+          </li>
+          <li>
+            Descriptive text on this site is summarised from the Gofrs
+            <a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://github.com/gofrs/.github/blob/main/profile/README.md" rel="noopener noreferrer">profile README</a>,
+            with short quotations attributed inline.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-slate-900">Site &amp; dependencies</h3>
+        <ul class="mt-2 space-y-2 leading-relaxed text-slate-600">
+          <li><a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://tailwindcss.com" rel="noopener noreferrer">Tailwind&nbsp;CSS</a> &mdash; MIT, loaded from cdn.tailwindcss.com.</li>
+          <li><a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://rsms.me/inter/" rel="noopener noreferrer">Inter</a> by Rasmus Andersson &mdash; SIL Open Font License 1.1.</li>
+          <li><a class="text-go underline decoration-slate-300 underline-offset-2 hover:decoration-go" href="https://www.jetbrains.com/lp/mono/" rel="noopener noreferrer">JetBrains&nbsp;Mono</a> &mdash; SIL Open Font License 1.1.</li>
+          <li>Both fonts are served by Google Fonts.</li>
+          <li>&ldquo;Go&rdquo; and the Go logo are trademarks of Google&nbsp;LLC. Use here is nominative and descriptive only.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <div class="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>
+        Site code released under the MIT License. Content as described above.
+      </p>
+      <p class="flex flex-wrap gap-x-4 gap-y-1">
+        <a class="hover:text-slate-900" href="https://github.com/gofrs" rel="noopener noreferrer">github.com/gofrs</a>
+        <a class="hover:text-slate-900" href="https://pkg.go.dev/github.com/gofrs/uuid/v5" rel="noopener noreferrer">uuid docs</a>
+        <a class="hover:text-slate-900" href="https://pkg.go.dev/github.com/gofrs/flock" rel="noopener noreferrer">flock docs</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Copy-to-clipboard for the install snippets. */
+  var status = document.getElementById('copy-status');
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn._label = btn.textContent.trim();
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+
+      var flash = function (label, announce) {
+        btn.textContent = label;
+        if (status && announce) { status.textContent = announce; }
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () { btn.textContent = btn._label; }, 1600);
+      };
+      var ok = function () { flash('Copied', text + ' copied to clipboard'); };
+
+      /* Fallback for insecure contexts, or when the async API is denied. */
+      var legacy = function () {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          var copied = document.execCommand('copy');
+          document.body.removeChild(ta);
+          if (copied) { ok(); } else { flash('Ctrl+C', 'Press Ctrl+C to copy'); }
+        } catch (e) {
+          flash('Ctrl+C', 'Press Ctrl+C to copy');
+        }
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, legacy);
+      } else {
+        legacy();
+      }
+    });
+  });
+
+  /* Refresh release tag and star count from the public GitHub API.
+     Purely progressive: on any failure the values baked into the HTML stand. */
+  var compact = function (n) {
+    return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n);
+  };
+
+  ['gofrs/uuid', 'gofrs/flock'].forEach(function (repo) {
+    var starEl = document.querySelector('[data-stars="' + repo + '"]');
+    var relEl = document.querySelector('[data-release="' + repo + '"]');
+
+    if (starEl) {
+      fetch('https://api.github.com/repos/' + repo)
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) {
+          if (typeof d.stargazers_count === 'number') { starEl.textContent = compact(d.stargazers_count); }
+        })
+        .catch(function () {});
+    }
+
+    if (relEl) {
+      fetch('https://api.github.com/repos/' + repo + '/releases/latest')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) { if (d.tag_name) { relEl.textContent = d.tag_name; } })
+        .catch(function () {});
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
