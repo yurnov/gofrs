@@ -6,13 +6,17 @@ A minimalistic, fully static landing page about [the Gofrs](https://github.com/g
 
 ## What's here
 
+Everything served to visitors lives under `public/`; that directory is what gets uploaded.
+
 | File | Purpose |
 | --- | --- |
-| `index.html` | The landing page — hero, library cards, about, get-involved, attribution footer |
-| `404.html` | Custom not-found page (Cloudflare Pages serves this automatically) |
-| `_headers` | Cloudflare Pages security headers and cache policy, including a CSP |
-| `favicon.svg` | Site icon (original mark, not derived from the Gofrs logo) |
-| `robots.txt`, `sitemap.xml` | Basic crawler hints |
+| `public/index.html` | The landing page — hero, library cards, about, get-involved, attribution footer |
+| `public/404.html` | Custom not-found page (served via `not_found_handling`) |
+| `public/_headers` | Security headers and cache policy, including a CSP |
+| `public/favicon.svg` | Site icon (original mark, not derived from the Gofrs logo) |
+| `public/robots.txt`, `public/sitemap.xml` | Basic crawler hints |
+| `wrangler.jsonc` | Cloudflare Worker config — worker name and assets directory |
+| `.github/workflows/deploy.yml` | Deploys `public/` on every push to `main` |
 | `LICENSE` | MIT, covering the site code only |
 | `ATTRIBUTION.md` | Full third-party attribution and licensing notes |
 
@@ -21,11 +25,11 @@ There is no build step, no `node_modules`, and no local copies of fonts or CSS. 
 ### Local preview
 
 ```bash
-python3 -m http.server 8080
+python3 -m http.server 8080 --directory public
 # then open http://localhost:8080
 ```
 
-Note that `_headers` is a Cloudflare Pages feature and has no effect under a plain local server.
+Note that `_headers` is a Cloudflare feature and has no effect under a plain local server. To preview with the real asset routing, including `_headers` and the 404 page, use `npx wrangler@4 dev` instead.
 
 ## On the gof.rs address
 
